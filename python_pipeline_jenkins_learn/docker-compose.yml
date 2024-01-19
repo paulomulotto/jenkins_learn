@@ -1,0 +1,7 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    container_name: python_pipeline_jenkins_learn
+    ports:
+      - "8083:8080"

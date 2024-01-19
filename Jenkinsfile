@@ -1,14 +1,15 @@
 pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
+    agent {
+        dockerfile {
+            filename 'Dockerfile'
+            dir 'python_pipeline_jenkins_learn'
+            label 'python_pipeline_jenkins_learn'
         }
+    }
+    stages {
         stage('Test') {
             steps {
-                echo 'Testing..'
+                sh 'poetry run pytest'
             }
         }
     }
